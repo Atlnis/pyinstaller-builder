@@ -20,17 +20,12 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: 3.9
+          python-version: 3.12
 
       - name: Build 64-bit bootloader
         run: |
           cd bootloader
           python waf distclean all --target-arch=64bit
-
-      - name: Build 32-bit bootloader
-        run: |
-          cd bootloader
-          python waf distclean all --target-arch=32bit
 
       - name: Build packages
         run: |
